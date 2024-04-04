@@ -1,0 +1,120 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "firstname": "John",
+      "lastname": "Brayne",
+      "group": "n45"
+    },
+    {
+      "id": 2,
+      "firstname": "Oliver",
+      "lastname": "Connor",
+      "group": "n46"
+    },
+    {
+      "id": 3,
+      "firstname": "Harry",
+      "lastname": "Callum",
+      "group": "n45"
+    },
+    {
+      "id": 4,
+      "firstname": "Jacob",
+      "lastname": "Kyle",
+      "group": "n45"
+    },
+    {
+      "id": 5,
+      "firstname": "Charlie",
+      "lastname": "Joe",
+      "group": "n46"
+    },
+    {
+      "id": 6,
+      "firstname": "Thomas",
+      "lastname": "Reece",
+      "group": "n46"
+    },
+    {
+      "id": 7,
+      "firstname": "George",
+      "lastname": "Rhys",
+      "group": "n45"
+    },
+    {
+      "id": 8,
+      "firstname": "Oscar",
+      "lastname": "Charlie",
+      "group": "n46"
+    },
+    {
+      "id": 9,
+      "firstname": "James",
+      "lastname": "Damian",
+      "group": "n45"
+    }
+  ],
+  "teachers": [
+    {
+      "id": 1,
+      "firstname": "Noah",
+      "lastname": "James",
+      "group": "n46"
+    },
+    {
+      "id": 2,
+      "firstname": "Liam",
+      "lastname": "John",
+      "group": "n45"
+    },
+    {
+      "id": 3,
+      "firstname": "Mason",
+      "lastname": "Robert",
+      "group": "n46"
+    },
+    {
+      "id": 4,
+      "firstname": "Jacob",
+      "lastname": "Michael",
+      "group": "n45"
+    },
+    {
+      "id": 5,
+      "firstname": "William",
+      "lastname": "David",
+      "group": "n46"
+    },
+    {
+      "id": 6,
+      "firstname": "Ethan",
+      "lastname": "William",
+      "group": "n45"
+    },
+    {
+      "id": 7,
+      "firstname": "Michael",
+      "lastname": "Richard",
+      "group": "n46"
+    },
+    {
+      "id": 8,
+      "firstname": "Alexander",
+      "lastname": "Joseph",
+      "group": "n45"
+    },
+    {
+      "id": 9,
+      "firstname": "James",
+      "lastname": "Charles",
+      "group": "n45"
+    },
+    {
+      "id": 10,
+      "firstname": "Daniel",
+      "lastname": "Thomas",
+      "group": "n46"
+    }
+  ]
+}
