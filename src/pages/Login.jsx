@@ -2,10 +2,19 @@ import React from "react";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input, Row, Col } from "antd";
 import { Typography } from "antd";
+import { useAuth } from "../components/Auth";
+import { useNavigate } from "react-router-dom";
 const { Title } = Typography;
 const Login = () => {
+  const navigate = useNavigate();
+  const { login } = useAuth();
+
   const onFinish = (values) => {
-    console.log("Received values of form: ", values);
+    if (values.username.length >= 3 && values.password.length >= 3) {
+      const data = { username: values.username, password: values.password };
+      login(data);
+      navigate("/");
+    }
   };
 
   return (
@@ -19,7 +28,7 @@ const Login = () => {
           }}
           onFinish={onFinish}
         >
-          <Title>Sign in </Title>
+          <Title style={{ color: "white" }}>Sign in </Title>
           <Form.Item
             name="username"
             rules={[
@@ -30,6 +39,7 @@ const Login = () => {
             ]}
           >
             <Input
+              style={{ backgroundColor: "grey" }}
               prefix={<UserOutlined className="site-form-item-icon" />}
               placeholder="Username"
             />
@@ -44,6 +54,7 @@ const Login = () => {
             ]}
           >
             <Input
+              style={{ backgroundColor: "grey" }}
               prefix={<LockOutlined className="site-form-item-icon" />}
               type="password"
               placeholder="Password"
@@ -51,7 +62,7 @@ const Login = () => {
           </Form.Item>
           <Form.Item>
             <Form.Item name="remember" valuePropName="checked" noStyle>
-              <Checkbox>Remember me</Checkbox>
+              <Checkbox style={{ color: "white" }}>Remember me</Checkbox>
             </Form.Item>
           </Form.Item>
 
