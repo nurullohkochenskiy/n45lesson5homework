@@ -1,8 +1,10 @@
 import React from 'react'
+import Dashboard from '../../components/Dashboard'
+import Teacherlist from '../../components/Teacherlist'
 
 const Teachers = () => {
   return (
-    <div>Teachers</div>
+    <Dashboard><Teacherlist/></Dashboard>
   )
 }
 

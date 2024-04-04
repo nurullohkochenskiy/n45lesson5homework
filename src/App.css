@@ -1,8 +1,46 @@
-body{
-    /* background-color: rgb(0, 21, 41); */
-    background-color: rgb(0, 12, 23);
+body {
+  background-color: rgb(0, 12, 23);
 }
-.mainContent{
-    background-color: rgb(0, 21, 41);
-    
+.mainContent {
+  background-color: rgb(0, 21, 41);
+}
+* {
+  /* color: white; */
+}
+.container {
+  max-width: 1240px;
+}
+/* .ant-table-thead .ant-table-cell{
+    background-color: rgb(0, 21, 41) !important;
+} */
+.ant-table-cell {
+  background-color: grey !important;
+}
+.ant-pagination-item a,
+.ant-pagination-item a:hover {
+  color: #1890ff !important;
+  background-color: rgb(0, 21, 41);
+}
+
+.ant-pagination-item-active a {
+  background-color: rgb(22, 119, 255);
+  color: white !important;
+}
+
+.ant-pagination-prev,
+.ant-pagination-next {
+  background-color: rgb(0, 21, 41);
+  border-color: #1890ff;
+}
+
+.ant-pagination-prev:hover,
+.ant-pagination-next:hover {
+  border-color: #40a9ff;
+}
+
+.ant-pagination-prev svg,
+.ant-pagination-next svg {
+  background-color: rgb(0, 21, 41);
+
+  color: #1890ff;
 }

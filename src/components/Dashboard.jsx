@@ -9,6 +9,7 @@ import { Flex, Button, Menu } from "antd";
 import { Typography } from "antd";
 import { Link } from "react-router-dom";
 import { useAuth } from "./Auth";
+
 function getItem(label, key, icon, children, type) {
   return {
     key,
@@ -18,10 +19,12 @@ function getItem(label, key, icon, children, type) {
     type,
   };
 }
+
 const items = [
-  getItem("Teachers", "1", <UsergroupAddOutlined />),
-  getItem("Students", "2", <UsergroupAddOutlined />),
+  getItem("Teachers", "1", <UsergroupAddOutlined />, "/teachers"),
+  getItem("Students", "2", <UsergroupAddOutlined />, "/students"),
 ];
+
 const Dashboard = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
   const toggleCollapsed = () => {
@@ -52,8 +55,13 @@ const Dashboard = ({ children }) => {
             mode="inline"
             theme="dark"
             inlineCollapsed={collapsed}
-            items={items}
-          />
+          >
+            {items.map(item => (
+              <Menu.Item key={item.key} icon={item.icon}>
+                <Link to={`/${item.label}`}>{item.label}</Link>
+              </Menu.Item>
+            ))}
+          </Menu>
         </div>
 
         <Link
@@ -68,9 +76,11 @@ const Dashboard = ({ children }) => {
         </Link>
       </Flex>
       
-        <Flex justify="center">{children}</Flex>
+      <Flex justify="center">{children}</Flex>
      
     </>
   );
 };
+
 export default Dashboard;
+
