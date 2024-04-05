@@ -8,6 +8,11 @@ body {
 .container {
   max-width: 1240px;
 }
+
+
+
+
+/*! Ant changes st */
 /* .ant-table-thead .ant-table-cell{
     background-color: rgb(0, 21, 41) !important;
 } */
@@ -45,3 +50,4 @@ body {
 .ant-menu-item-selected{
   background-color: inherit !important;
 }
+/*! Ant changes end*/

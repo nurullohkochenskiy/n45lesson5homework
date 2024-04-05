@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Dashboard from "../../components/Dashboard";
 import Teacherlist from "../../components/Teacherlist";
-import { Input, Space, Flex, Button, Select } from "antd";
+import { Input, Space, Flex, Button, Select, Modal, Form } from "antd";
 import { useUsers } from "../../context/ContextProvider";
 const { Search } = Input;
 const Teachers = () => {
@@ -20,8 +20,85 @@ const Teachers = () => {
   const handleSearch = (e) => {
     setInpValTeacher(e.target.value);
   };
+  //! Modal start
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+  const handleClick = () => {
+    setIsModalOpen(true);
+  };
+
+  //& Modal form start
+  const onFinish = (values) => {
+    console.log("Success:", values);
+  };
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
+  //& Modal form end
+  //! Modal end
   return (
     <Dashboard>
+      <Modal
+        title=""
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <Form
+          name="basic"
+          wrapperCol={{
+            span: 16,
+          }}
+          initialValues={{
+            remember: true,
+          }}
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+          autoComplete="off"
+        >
+          <Form.Item
+            label="Firstname"
+            name="firstname"
+            rules={[
+              {
+                required: true,
+                message: "Please input your username!",
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            label="Lastname"
+            name="lastname"
+            rules={[
+              {
+                required: true,
+                message: "Please input your username!",
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+
+          <Form.Item
+            wrapperCol={{
+              offset: 8,
+              span: 16,
+            }}
+          >
+            <Button type="primary" htmlType="submit">
+              Submit
+            </Button>
+          </Form.Item>
+        </Form>
+      </Modal>
       <Flex
         style={{
           width: 1240,
@@ -37,7 +114,9 @@ const Teachers = () => {
             width: 200,
           }}
         />
-        <Button type="primary">Add a teacher</Button>
+        <Button onClick={handleClick} type="primary">
+          Add a teacher
+        </Button>
         <div>
           <Space
             style={{
