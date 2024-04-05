@@ -4,7 +4,7 @@ import Teacherlist from "../../components/Teacherlist";
 import { Input, Space, Flex, Button, Select } from "antd";
 const { Search } = Input;
 const Teachers = () => {
-  const onSearch = (value, _e, info) => console.log(info?.source, value);
+  // const onSearch = (value, _e) => console.log(value, _e);
   const options = [];
   for (let i = 10; i < 36; i++) {
     options.push({
@@ -15,18 +15,22 @@ const Teachers = () => {
   const handleChange = (value) => {
     console.log(`selected ${value}`);
   };
+  const handleSearch = (e) => {
+    console.log(e.target.value);
+  };
   return (
     <Dashboard>
       <Flex
         style={{
           width: 1240,
-          marginTop: 20
+          marginTop: 20,
         }}
         justify="space-between"
       >
         <Search
           placeholder="input search text"
-          onSearch={onSearch}
+          // onSearch={onSearch}
+          onChange={handleSearch}
           style={{
             width: 200,
           }}

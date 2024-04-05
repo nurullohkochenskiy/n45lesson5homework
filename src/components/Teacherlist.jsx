@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Table, Button } from "antd";
-import { useUsers } from "../context/UsersProvider";
+import { useUsers } from "../context/ContextProvider";
 
 const Teacherlist = () => {
   const columns = [
