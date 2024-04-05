@@ -20,6 +20,7 @@ const Teachers = () => {
       <Flex
         style={{
           width: 1240,
+          marginTop: 20
         }}
         justify="space-between"
       >
