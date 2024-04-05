@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Table } from "antd";
+import { Table, Button } from "antd";
 import { useUsers } from "../context/UsersProvider";
 
 const Studentlist = () => {
@@ -24,18 +24,30 @@ const Studentlist = () => {
       title: "Group",
       dataIndex: "group",
     },
+    {
+      title: "Actions",
+      dataIndex: "actions",
+    },
   ];
 
 
-  const {students} = useUsers();
-
-  const data = students.map(({ firstname, lastname,  group }, index) => {
+  const {students,delStudent} = useUsers();
+  const Handleclick = (id) => {
+    delStudent(id);
+  };
+  const data = students.map(({id, firstname, lastname,  group }, index) => {
     return {
       key: index,
       index: index + 1,
       firstname: firstname,
       lastname: lastname,
       group: group ,
+      actions: (
+        <div>
+          <Button>Edit</Button>{" "}
+          <Button type="primary" danger onClick={() => Handleclick(id)}>Delete</Button>
+        </div>
+      ),
     };
   });
   return (

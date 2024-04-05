@@ -28,11 +28,14 @@ export function UsersProvider({ children }) {
     setTeachers(newList);
   };
   
-
+  const delStudent = (id) => {
+    const newList = students.filter((student) => student.id !== id);
+    setStudents(newList);
+  };
   localStorage.setItem("teachers", JSON.stringify(teachers));
   localStorage.setItem("students", JSON.stringify(students));
   return (
-    <UsersContext.Provider value={{ teachers, students,delTeacher }}>
+    <UsersContext.Provider value={{ teachers, students,delTeacher,delStudent }}>
       {children}
     </UsersContext.Provider>
   );
