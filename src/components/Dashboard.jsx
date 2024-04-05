@@ -76,7 +76,7 @@ const Dashboard = ({ children }) => {
         </Link>
       </Flex>
       
-      <Flex justify="center">{children}</Flex>
+      <Flex align="center" vertical  >{children}</Flex>
      
     </>
   );
