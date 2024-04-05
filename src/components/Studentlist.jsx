@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "antd";
+import { useUsers } from "../context/UsersProvider";
 
 const Studentlist = () => {
   const columns = [
@@ -26,15 +27,9 @@ const Studentlist = () => {
   ];
 
 
-  const [users, setUsers] = useState([]);
+  const {students} = useUsers();
 
-  useEffect(() => {
-    fetch("http://localhost:3001/students")
-      .then((response) => response.json())
-      .then((data) => setUsers(data));
-  }, []);
-
-  const data = users.map(({ firstname, lastname,  group }, index) => {
+  const data = students.map(({ firstname, lastname,  group }, index) => {
     return {
       key: index,
       index: index + 1,
