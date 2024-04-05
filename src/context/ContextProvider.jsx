@@ -22,20 +22,46 @@ export function ContextProvider({ children }) {
         .then((data) => setStudents(data));
     }
   }, []);
-
+  //! Delete start
   const delTeacher = (id) => {
     const newList = teachers.filter((teacher) => teacher.id !== id);
     setTeachers(newList);
   };
-  
+
   const delStudent = (id) => {
     const newList = students.filter((student) => student.id !== id);
     setStudents(newList);
   };
+  //! Delete end
+
+  //! Search start
+  const [inpValTeacher, setInpValTeacher] = useState("");
+  // const searchTeacher = setInpValTeacher
+  const [searchResTeacher, setSearchResTeacher] = useState([]);
+  useEffect(() => {
+    if(inpValTeacher.length){
+      const filtered = teachers.filter((teacher) => {
+        const filteringItems = [
+          teacher.firstname,
+          teacher.lastname,
+          teacher.level,
+          teacher.groups.join(""),
+        ];
+        return filteringItems.some((item) =>
+          item.toLowerCase().includes(inpValTeacher.toLowerCase())
+        );
+      });
+      setSearchResTeacher(filtered);
+    }
+  }, [inpValTeacher]);
+
+  //! Search end
   localStorage.setItem("teachers", JSON.stringify(teachers));
   localStorage.setItem("students", JSON.stringify(students));
   return (
-    <UsersContext.Provider value={{ teachers, students,delTeacher,delStudent }}>
+    <UsersContext.Provider
+      value={{ teachers, students, delTeacher, delStudent, setInpValTeacher,inpValTeacher, searchResTeacher }}
+    >
       {children}
     </UsersContext.Provider>
   );

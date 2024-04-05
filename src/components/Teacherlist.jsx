@@ -33,11 +33,12 @@ const Teacherlist = () => {
     },
   ];
 
-  const { teachers, delTeacher } = useUsers();
+  const { teachers, delTeacher, searchResTeacher, inpValTeacher } =
+    useUsers();
   const Handleclick = (id) => {
     delTeacher(id);
   };
-
+  // const [data, setData] = useState([]);
   const data = teachers.map(
     ({ id, firstname, lastname, level, groups }, index) => {
       return {
@@ -50,17 +51,40 @@ const Teacherlist = () => {
         actions: (
           <div>
             <Button>Edit</Button>{" "}
-            <Button type="primary" danger onClick={() => Handleclick(id)}>Delete</Button>
+            <Button type="primary" danger onClick={() => Handleclick(id)}>
+              Delete
+            </Button>
           </div>
         ),
       };
     }
   );
+  const searchedData = searchResTeacher.map(({ id, firstname, lastname, level, groups }, index) => {
+    return {
+      key: index,
+      index: index + 1,
+      firstname: firstname,
+      lastname: lastname,
+      level: level,
+      groups: groups.join(","),
+      actions: (
+        <div>
+          <Button>Edit</Button>{" "}
+          <Button type="primary" danger onClick={() => Handleclick(id)}>
+            Delete
+          </Button>
+        </div>
+      ),
+    };
+  })
+  // useEffect(() => {
+  //   // setData(datanew);
+  // }, [setInpValTeacher]);
   return (
     <Table
       className="container darkbg"
       columns={columns}
-      dataSource={data}
+      dataSource={inpValTeacher.length? searchedData : data}
       pagination={{
         pageSize: 5,
       }}

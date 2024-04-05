@@ -2,6 +2,7 @@ import React from "react";
 import Dashboard from "../../components/Dashboard";
 import Teacherlist from "../../components/Teacherlist";
 import { Input, Space, Flex, Button, Select } from "antd";
+import { useUsers } from "../../context/ContextProvider";
 const { Search } = Input;
 const Teachers = () => {
   // const onSearch = (value, _e) => console.log(value, _e);
@@ -15,8 +16,9 @@ const Teachers = () => {
   const handleChange = (value) => {
     console.log(`selected ${value}`);
   };
+  const { setInpValTeacher } = useUsers();
   const handleSearch = (e) => {
-    console.log(e.target.value);
+    setInpValTeacher(e.target.value);
   };
   return (
     <Dashboard>
